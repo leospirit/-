@@ -3,41 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>《我看见的世界》书评 - 一场视觉与心灵的旅程</title>
+    <title>COSTAR提问策略转换器</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* 变量定义 */
         :root {
-            /* 浅色模式 */
             --bg-primary: #ffffff;
-            --bg-secondary: #f7f9fc;
-            --bg-tertiary: #edf2f7;
-            --text-primary: #1a202c;
-            --text-secondary: #4a5568;
-            --text-tertiary: #718096;
-            --accent-primary: #5a67d8;
-            --accent-secondary: #4c51bf;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --accent-primary: #6366f1;
+            --accent-secondary: #4f46e5;
+            --success-color: #22c55e;
             --border-color: #e2e8f0;
             --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
             --card-hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
         }
 
         html[data-theme="dark"] {
-            /* 深色模式 */
-            --bg-primary: #1a202c;
-            --bg-secondary: #2d3748;
-            --bg-tertiary: #4a5568;
-            --text-primary: #f7fafc;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --text-primary: #f8fafc;
             --text-secondary: #e2e8f0;
             --text-tertiary: #cbd5e0;
-            --accent-primary: #7f9cf5;
-            --accent-secondary: #667eea;
-            --border-color: #4a5568;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
-            --card-hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.2);
+            --accent-primary: #818cf8;
+            --accent-secondary: #6366f1;
+            --success-color: #4ade80;
+            --border-color: #334155;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.2);
+            --card-hover-shadow: 0 10px 15px rgba(0, 0, 0, 0.3), 0 4px 6px rgba(0, 0, 0, 0.25);
         }
 
-        /* 基础样式 */
         * {
             margin: 0;
             padding: 0;
@@ -55,90 +53,32 @@
             overflow-x: hidden;
         }
 
-        /* 排版 */
-        h1, h2, h3, h4, h5, h6 {
-            font-family: "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            border-bottom: 2px solid var(--accent-primary);
-            padding-bottom: 0.5rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: var(--accent-primary);
-        }
-
-        p {
-            margin-bottom: 1.25rem;
-            font-size: 1.05rem;
-        }
-
-        strong {
-            font-weight: 600;
-            color: var(--accent-primary);
-        }
-
-        /* 布局 */
         .container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 1.5rem;
         }
 
         header {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 2rem;
-        }
-
-        .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
-            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
             font-weight: 700;
             color: var(--accent-primary);
-            text-decoration: none;
         }
 
-        /* 导航 */
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-
-        nav a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 0.75rem;
-            border-radius: 0.375rem;
-            transition: all 0.2s ease;
-        }
-
-        nav a:hover {
-            color: var(--accent-primary);
-            background-color: var(--bg-secondary);
+        .logo i {
+            font-size: 1.75rem;
         }
 
         .theme-toggle {
@@ -156,104 +96,70 @@
             background-color: var(--bg-secondary);
         }
 
-        /* 主要内容区 */
-        main {
-            padding: 2rem 0;
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
 
-        .section {
-            margin-bottom: 4rem;
-            animation: fadeIn 0.8s ease-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* 卡片组件 */
         .card {
             background-color: var(--bg-primary);
             border-radius: 0.75rem;
             border: 1px solid var(--border-color);
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
             box-shadow: var(--card-shadow);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            box-shadow: var(--card-hover-shadow);
-            transform: translateY(-2px);
         }
 
         .card-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 1rem;
             color: var(--accent-primary);
         }
 
-        /* 网格布局 */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
+        .input-group {
+            margin-bottom: 1.5rem;
         }
 
-        /* 可视化图表容器 */
-        .chart-container {
-            background-color: var(--bg-secondary);
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            box-shadow: var(--card-shadow);
-        }
-
-        /* 引用块 */
-        blockquote {
-            border-left: 4px solid var(--accent-primary);
-            padding-left: 1rem;
-            margin: 1.5rem 0;
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
             color: var(--text-secondary);
-            font-style: italic;
         }
 
-        /* 表格样式 */
-        table {
+        textarea {
             width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
             background-color: var(--bg-primary);
-            border-radius: 0.5rem;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
+            color: var(--text-primary);
+            resize: vertical;
+            min-height: 150px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
 
-        th, td {
-            padding: 0.75rem 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border-color);
+        textarea:focus {
+            outline: none;
+            border-color: var(--accent-primary);
         }
 
-        th {
-            background-color: var(--bg-secondary);
-            font-weight: 600;
-            color: var(--accent-primary);
-        }
-
-        tr:last-child td {
-            border-bottom: none;
-        }
-
-        /* 按钮样式 */
         .btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
             background-color: var(--accent-primary);
             color: white;
             padding: 0.75rem 1.5rem;
             border-radius: 0.375rem;
-            text-decoration: none;
             font-weight: 600;
             border: none;
             cursor: pointer;
@@ -263,547 +169,314 @@
         .btn:hover {
             background-color: var(--accent-secondary);
             transform: translateY(-2px);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        /* 标签样式 */
-        .tag {
-            display: inline-block;
-            background-color: var(--bg-secondary);
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn.secondary {
+            background-color: var(--bg-tertiary);
             color: var(--text-secondary);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
         }
 
-        /* 图片样式 */
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 0.5rem;
-            margin: 1.5rem 0;
+        .btn.secondary:hover {
+            background-color: var(--border-color);
         }
 
-        /* 进度条 */
-        .progress-container {
-            width: 100%;
-            background-color: var(--bg-secondary);
-            border-radius: 9999px;
-            height: 0.5rem;
-            margin: 1rem 0;
-        }
-
-        .progress-bar {
-            height: 100%;
-            border-radius: 9999px;
-            background-color: var(--accent-primary);
-        }
-
-        /* 页脚 */
-        footer {
-            background-color: var(--bg-secondary);
-            padding: 3rem 0;
-            margin-top: 4rem;
-            border-top: 1px solid var(--border-color);
-        }
-
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-section h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-section p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .social-links {
+        .button-group {
             display: flex;
             gap: 1rem;
             margin-top: 1rem;
         }
 
-        .social-link {
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            transition: color 0.2s ease;
-        }
-
-        .social-link:hover {
-            color: var(--accent-primary);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            color: var(--text-tertiary);
-            font-size: 0.875rem;
-            border-top: 1px solid var(--border-color);
-            margin-top: 2rem;
-        }
-
-        /* 阅读推荐 */
-        .reading-list {
-            margin-top: 2rem;
-        }
-
-        .reading-item {
+        .output-section {
             display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--border-color);
+            flex-direction: column;
         }
 
-        .reading-item:last-child {
-            border-bottom: none;
+        .output-format {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
 
-        .reading-item-icon {
-            flex-shrink: 0;
+        .output-area {
+            flex-grow: 1;
+            margin-bottom: 1rem;
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            padding: 1rem;
+            overflow-y: auto;
+        }
+
+        .output-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .output-item-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
             color: var(--accent-primary);
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            margin-top: 0.25rem;
-        }
-
-        .reading-item-content h4 {
             margin-bottom: 0.5rem;
         }
 
-        .reading-item-content p {
+        .output-item-content {
+            padding-left: 1.75rem;
+            color: var(--text-primary);
+        }
+
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--text-secondary);
+            background: none;
+            border: none;
             font-size: 0.95rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.25rem;
+        }
+
+        .copy-btn:hover {
+            color: var(--accent-primary);
+            background-color: var(--bg-secondary);
+        }
+
+        .copy-msg {
+            display: inline-block;
+            margin-left: 1rem;
+            color: var(--success-color);
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-msg.show {
+            opacity: 1;
+        }
+
+        .accordion {
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 0.375rem;
+            overflow: hidden;
+        }
+
+        .accordion-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            background-color: var(--bg-secondary);
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .accordion-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .accordion-content.active {
+            padding: 1rem;
+            max-height: 500px;
+        }
+
+        .help-section {
+            margin-top: 2rem;
+        }
+
+        .help-item {
+            margin-bottom: 1rem;
+        }
+
+        .help-item h4 {
+            color: var(--accent-primary);
             margin-bottom: 0.5rem;
         }
 
-        /* 响应式设计 - 移动设备优化 */
-        @media (max-width: 768px) {
-            header {
-                padding: 1rem 0;
-            }
-
-            .header-container {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .logo {
-                margin-bottom: 0.75rem;
-            }
-
-            nav {
-                margin-top: 0.75rem;
-                width: 100%;
-                order: 3;
-            }
-
-            nav ul {
-                flex-wrap: wrap;
-                gap: 0.5rem;
-                padding: 0;
-            }
-            
-            nav a {
-                padding: 0.4rem 0.6rem;
-                font-size: 0.9rem;
-            }
-
-            .theme-toggle {
-                position: absolute;
-                top: 1rem;
-                right: 1.5rem;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-                line-height: 1.3;
-            }
-
-            h2 {
-                font-size: 1.4rem;
-            }
-            
-            h3 {
-                font-size: 1.2rem;
-            }
-
-            .lead {
-                font-size: 1rem;
-                line-height: 1.5;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-
-            .footer-container {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
-            .card {
-                padding: 1.2rem;
-                margin-bottom: 1rem;
-            }
-            
-            .chart-container {
-                padding: 1rem;
-                margin: 1.5rem 0;
-                height: 350px;
-            }
-            
-            #chart1 {
-                height: 300px !important;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
-            
-            th, td {
-                padding: 0.5rem 0.75rem;
-            }
-            
-            blockquote {
-                font-size: 0.95rem;
-                margin: 1.2rem 0;
-            }
-            
-            .reading-item {
-                flex-direction: column;
-            }
-            
-            .reading-item-icon {
-                margin-bottom: 0.75rem;
-            }
-        }
-        
-        /* 额外的小屏幕优化 */
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1rem;
-            }
-            
-            h1 {
-                font-size: 1.6rem;
-            }
-            
-            nav ul {
-                justify-content: space-between;
-                width: 100%;
-            }
-            
-            nav a {
-                font-size: 0.85rem;
-                padding: 0.35rem 0.5rem;
-            }
-            
-            .progress-container {
-                height: 0.4rem;
-            }
-            
-            .social-links {
-                justify-content: space-around;
-            }
-        }
-
-        /* 移动端优化样式 */
-        .mobile-footer-note {
-            display: none;
-            font-size: 0.8rem;
-            margin-top: 0.5rem;
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
             color: var(--text-tertiary);
+            font-size: 0.9rem;
         }
-        
-        /* 只在移动设备上显示 */
+
+        /* 移动端优化 */
         @media (max-width: 768px) {
-            .mobile-footer-note {
-                display: block;
+            .main-content {
+                grid-template-columns: 1fr;
             }
-            
-            /* 触摸优化 */
-            a, button, .card, .social-link {
-                -webkit-tap-highlight-color: transparent;
-                touch-action: manipulation;
+
+            .button-group {
+                flex-direction: column;
             }
-            
-            /* 添加快速点击效果 */
-            a:active, button:active, .card:active {
-                transform: scale(0.98);
-                transition: transform 0.1s;
-            }
-            
-            /* 优化滚动 */
-            .container {
-                -webkit-overflow-scrolling: touch;
-            }
-            
-            /* 去除双击缩放 */
-            * {
-                touch-action: pan-x pan-y;
+
+            .btn {
+                width: 100%;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">书海听涛</a>
-            <nav>
-                <ul>
-                    <li><a href="#overview">书籍概览</a></li>
-                    <li><a href="#highlights">精彩片段</a></li>
-                    <li><a href="#analysis">深度解析</a></li>
-                    <li><a href="#reading">延伸阅读</a></li>
-                </ul>
-            </nav>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <i class="fas fa-comments"></i>
+                <span>COSTAR提问策略转换器</span>
+            </div>
             <button id="theme-toggle" class="theme-toggle" aria-label="切换主题">
                 <i class="fas fa-moon"></i>
             </button>
-        </div>
-    </header>
+        </header>
 
-    <main class="container">
-        <section class="section" id="overview">
-            <h1>《我看见的世界》书评</h1>
-            <p class="lead">《我看见的世界》是人工智能科学家李飞飞的自传体著作，讲述了她从中国小镇到斯坦福大学AI实验室的非凡旅程。本书既是一部个人成长史，也是对计算机视觉和人工智能领域的深度思考，展现了科技与人文如何在一位杰出科学家的生命中交织。</p>
-            
+        <div class="main-content">
             <div class="card">
-                <h3 class="card-title">作品信息</h3>
-                <p><strong>书名：</strong>《我看见的世界》</p>
-                <p><strong>作者：</strong>李飞飞</p>
-                <p><strong>出版社：</strong>中信出版社</p>
-                <p><strong>出版日期：</strong>2023年3月</p>
-                <p><strong>页数：</strong>256页</p>
-                <p><strong>评分：</strong>⭐⭐⭐⭐⭐ (4.8/5)</p>
-                <div class="tags">
-                    <span class="tag">人工智能</span>
-                    <span class="tag">科学自传</span>
-                    <span class="tag">计算机视觉</span>
-                    <span class="tag">女性科学家</span>
+                <div class="card-title">
+                    <i class="fas fa-question-circle"></i>
+                    <span>输入问题</span>
                 </div>
-            </div>
-        </section>
-
-        <section class="section" id="highlights">
-            <h2>精彩片段与主题</h2>
-            <p>《我看见的世界》融合了个人回忆、科学探索和哲学思考，通过李飞飞的亲身经历，讲述了计算机视觉和人工智能的发展历程。以下是书中最具代表性的精彩片段与核心主题。</p>
-            
-            <div class="chart-container">
-                <div id="chart1" style="height: 400px; width: 100%;">
-                    <!-- 这里将插入图表，目前显示加载动画 -->
-                    <div class="loader"></div>
+                <div class="input-group">
+                    <label for="question-input">请输入你的问题或请求:</label>
+                    <textarea id="question-input" placeholder="例如: 帮我写一篇关于人工智能的文章"></textarea>
+                </div>
+                <div class="button-group">
+                    <button id="convert-btn" class="btn">
+                        <i class="fas fa-magic"></i> 转换为COSTAR格式
+                    </button>
+                    <button id="clear-btn" class="btn secondary">
+                        <i class="fas fa-eraser"></i> 清除
+                    </button>
                 </div>
             </div>
 
-            <div class="grid">
-                <div class="card">
-                    <h3 class="card-title">从贵州到美国的旅程</h3>
-                    <p>作者在《根与翼》章节中回忆了自己从中国贵州小镇到美国求学的经历，以及这段经历如何塑造了她的科学视角。</p>
-                    <blockquote>
-                        "在美国的第一个冬天，我常常想起贵州的雨季。两种截然不同的景象在我脑海中并置：东方与西方，乡村与城市，传统与现代。这种'双重视觉'后来成为我科研生涯的隐形资产，让我能从不同角度看待同一个问题。"
-                    </blockquote>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 89%;"></div>
-                    </div>
-                    <p><strong>89%</strong> - 读者对该章节的好评率</p>
+            <div class="card output-section">
+                <div class="card-title">
+                    <i class="fas fa-file-alt"></i>
+                    <span>COSTAR提问格式</span>
                 </div>
-                
-                <div class="card">
-                    <h3 class="card-title">计算机视觉的挑战</h3>
-                    <p>在《教机器看见》章节中，李飞飞详细解释了计算机视觉领域的根本挑战，以及她创建ImageNet数据集的历程。</p>
-                    <blockquote>
-                        "人类只需看一眼就能认出一只猫，而让计算机做到这一点却需要数百万张图片和复杂的算法。我们视若当然的能力，对机器而言是一座高山。这种差距让我意识到，真正理解视觉不仅是一个技术问题，更是一个关于认知本质的哲学探索。"
-                    </blockquote>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 94%;"></div>
+                <div class="output-format">
+                    <div class="output-area">
+                        <div id="output-content">
+                            <div class="output-item">
+                                <div class="output-item-header">
+                                    <i class="fas fa-map-marker-alt"></i> C - CONTEXT (背景信息)
+                                </div>
+                                <div class="output-item-content">
+                                    <p>请提供与您的问题相关的背景信息，帮助我更好地理解您的具体情境。</p>
+                                </div>
+                            </div>
+                            <div class="output-item">
+                                <div class="output-item-header">
+                                    <i class="fas fa-bullseye"></i> O - OBJECTIVE (任务目标)
+                                </div>
+                                <div class="output-item-content">
+                                    <p>您希望通过这个问题达成什么具体目标？</p>
+                                </div>
+                            </div>
+                            <div class="output-item">
+                                <div class="output-item-header">
+                                    <i class="fas fa-font"></i> S - STYLE (写作风格)
+                                </div>
+                                <div class="output-item-content">
+                                    <p>您希望回答采用什么样的写作风格？(例如：学术、通俗、技术、简洁等)</p>
+                                </div>
+                            </div>
+                            <div class="output-item">
+                                <div class="output-item-header">
+                                    <i class="fas fa-comment-dots"></i> T - TONE (情感语调)
+                                </div>
+                                <div class="output-item-content">
+                                    <p>您期望回答的情感基调或语气是怎样的？(例如：正式、友好、严肃、幽默等)</p>
+                                </div>
+                            </div>
+                            <div class="output-item">
+                                <div class="output-item-header">
+                                    <i class="fas fa-users"></i> A - AUDIENCE (受众)
+                                </div>
+                                <div class="output-item-content">
+                                    <p>最终内容的目标读者是谁？(例如：专业人士、初学者、学生等)</p>
+                                </div>
+                            </div>
+                            <div class="output-item">
+                                <div class="output-item-header">
+                                    <i class="fas fa-reply"></i> R - RESPONSE (响应格式)
+                                </div>
+                                <div class="output-item-content">
+                                    <p>您期望的回应形式和结构是怎样的？(例如：列表、图表、分步指南等)</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <p><strong>94%</strong> - 读者对该章节的好评率</p>
+                    <button id="copy-btn" class="copy-btn">
+                        <i class="fas fa-copy"></i> 复制内容
+                        <span id="copy-msg" class="copy-msg">已复制到剪贴板!</span>
+                    </button>
                 </div>
-                
-                <div class="card">
-                    <h3 class="card-title">AI与人文的交融</h3>
-                    <p>在《科技与人文的对话》章节中，作者分享了她对人工智能发展的人文思考，以及为何她坚持将伦理放在技术创新的中心位置。</p>
-                    <blockquote>
-                        "技术无法在真空中发展。每一行代码都隐含着价值观，每一个算法都反映着设计者的世界观。我们不能只关注AI能做什么，更要思考它应该做什么。只有将人文关怀融入技术创新，我们才能创造真正造福人类的人工智能。"
-                    </blockquote>
-                    <div class="progress-container">
-                        <div class="progress-bar" style="width: 96%;"></div>
-                    </div>
-                    <p><strong>96%</strong> - 读者对该章节的好评率</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="section" id="analysis">
-            <h2>深度解析</h2>
-            <p>《我看见的世界》不仅是一部关于视觉体验的作品，更是一次跨越哲学、心理学和艺术的思想探索。以下是对这部作品的多维度解析。</p>
-            
-            <div class="card">
-                <h3 class="card-title">计算机视觉的革命</h3>
-                <p>作为斯坦福大学人工智能实验室主任和ImageNet创始人，李飞飞在书中详细描述了计算机视觉领域的重大突破，以及深度学习如何彻底改变了机器视觉的发展轨迹。</p>
-                <blockquote>
-                    "2012年是计算机视觉的转折点。当深度神经网络在ImageNet挑战赛上将错误率从26%降至16%时，我知道我们正在见证历史。但我同时也意识到，这不仅仅是数字的变化，而是一个范式的转变，它将重新定义机器如何'看见'世界。"
-                </blockquote>
-                <p>李飞飞清晰地解释了从传统计算机视觉到深度学习的演变过程，使非专业读者也能理解这一技术革命的意义。她特别强调了大规模数据集（如她创建的ImageNet）在这一进程中的关键作用，以及为何"让机器学会看见"是通向通用人工智能的必由之路。这些见解不仅具有技术价值，也为我们理解当代AI发展提供了独特视角。</p>
-            </div>
-            
-            <div class="card">
-                <h3 class="card-title">科学家的成长历程</h3>
-                <p>作为一部科学自传，本书不仅展示了李飞飞的学术成就，更真实呈现了一位华人女性科学家在男性主导的科技领域中成长的历程与挑战。</p>
-                
-                <table>
-                    <thead>
-                        <tr>
-                            <th>人生阶段</th>
-                            <th>关键转折点</th>
-                            <th>对科研的影响</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>童年与移民经历</td>
-                            <td>12岁从贵州移民美国，不会说英语</td>
-                            <td>培养了跨文化视角和适应力</td>
-                        </tr>
-                        <tr>
-                            <td>求学时代</td>
-                            <td>从物理学转向计算机科学和神经科学</td>
-                            <td>形成跨学科研究方法</td>
-                        </tr>
-                        <tr>
-                            <td>职业早期</td>
-                            <td>创建ImageNet，推动深度学习革命</td>
-                            <td>奠定计算机视觉领域领导者地位</td>
-                        </tr>
-                        <tr>
-                            <td>领导阶段</td>
-                            <td>担任斯坦福AI实验室主任，加入谷歌云</td>
-                            <td>拓展AI研究与产业应用的边界</td>
-                        </tr>
-                    </tbody>
-                </table>
-                
-                <p>李飞飞以亲切而富有洞察力的笔触，分享了她作为女性科学家面临的特殊挑战，以及如何在保持科学严谨的同时不失对人文关怀的热忱。她坦诚地讨论了科研过程中的失败与挫折，展现了科学发现背后鲜为人知的人性面。这种诚实而平衡的叙事使本书不仅是一部优秀的科普作品，也是一部激励下一代科学家的励志读物。</p>
-            </div>
-            
-            <div class="card">
-                <h3 class="card-title">AI伦理与人文关怀</h3>
-                <p>作为一位既深谙技术又注重伦理的科学家，李飞飞在书中深入探讨了人工智能发展中的伦理问题，以及为何技术进步必须以人文关怀为指导。</p>
-                <blockquote>
-                    "人工智能不应该是冰冷的算法集合，而应该是增强人类能力、解放人类创造力的工具。我常常提醒团队和学生，我们的终极目标不是创造能模仿人类的机器，而是开发能与人类形成互补关系的技术，让人机协作创造更美好的未来。"
-                </blockquote>
-                <p>李飞飞提出了"以人为本"的AI发展理念，强调技术创新必须考虑社会影响、隐私保护和公平性等问题。她呼吁跨学科合作，让哲学家、社会学家、伦理学家和政策制定者共同参与AI治理。这种前瞻性思考使本书不仅关注AI的现在，也为其未来发展提供了重要的伦理框架和思考方向。</p>
-            </div>
-        </section>
-
-        <section class="section" id="reading">
-            <h2>延伸阅读</h2>
-            <p>如果你喜欢《我看见的世界》，以下这些探讨视觉体验、感知哲学和艺术观看的作品也值得一读。</p>
-            
-            <div class="reading-list">
-                <div class="reading-item">
-                    <div class="reading-item-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="reading-item-content">
-                        <h4>《人工智能简史》</h4>
-                        <p><strong>作者：</strong>尼克·博斯特罗姆 (Nick Bostrom)</p>
-                        <p>这本书提供了人工智能发展的全面历史视角，是理解李飞飞在《我看见的世界》中讨论的技术进展背景的绝佳读物。博斯特罗姆对AI未来发展的思考也与李飞飞的人文关怀形成了有趣的对话。</p>
-                    </div>
-                </div>
-                
-                <div class="reading-item">
-                    <div class="reading-item-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="reading-item-content">
-                        <h4>《深度学习革命》</h4>
-                        <p><strong>作者：</strong>特伦斯·谢诺夫斯基 (Terrence Sejnowski)</p>
-                        <p>谢诺夫斯基详细解释了深度学习的发展历程及其科学基础，是了解李飞飞在书中讨论的计算机视觉技术突破的理想补充读物。作者以生动的叙事风格介绍了复杂的技术概念，适合非专业读者阅读。</p>
-                    </div>
-                </div>
-                
-                <div class="reading-item">
-                    <div class="reading-item-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="reading-item-content">
-                        <h4>《超越智能：创造有意识的AI》</h4>
-                        <p><strong>作者：</strong>雷·库兹韦尔 (Ray Kurzweil)</p>
-                        <p>库兹韦尔对AI未来发展的大胆预测与李飞飞在《我看见的世界》中的谨慎思考形成了鲜明对比。阅读这本书可以帮助读者理解AI领域内不同的思想流派，以及李飞飞强调人文价值的独特立场。</p>
-                    </div>
-                </div>
-                
-                <div class="reading-item">
-                    <div class="reading-item-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="reading-item-content">
-                        <h4>《卓越女性：改变科学的50位女性》</h4>
-                        <p><strong>作者：</strong>蕾切尔·斯旺比 (Rachel Swaby)</p>
-                        <p>这本书讲述了50位改变科学的杰出女性科学家的故事，提供了理解李飞飞作为女性科学家经历的更广阔背景。书中的许多故事与李飞飞在科技领域打破性别壁垒的经历产生了共鸣。</p>
-                    </div>
-                </div>
-                
-            <div class="reading-item">
-                    <div class="reading-item-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <div class="reading-item-content">
-                        <h4>《人类的未来：科技、智慧与生命的下一步》</h4>
-                        <p><strong>作者：</strong>米奇奥·卡库 (Michio Kaku)</p>
-                        <p>著名物理学家卡库对未来科技的展望与李飞飞在人工智能领域的工作形成互补。这本书提供了更广阔的科技发展视角，帮助读者理解AI在整个人类科技进步中的位置。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-section">
-                    <h3>关于书评作者</h3>
-                    <p>陈雨萱，文学评论家，视觉艺术研究学者。北京大学中文系博士，现任教于中央美术学院人文学院。研究领域包括现代文学、视觉文化与艺术理论。著有《观看的艺术》《文字与图像的对话》等作品。</p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    </div>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>联系方式</h3>
-                    <p><i class="fas fa-envelope"></i> q111111221@gmail.com</p>
-                    <p><i class="fas fa-globe"></i> www.bookreviews.com
             </div>
         </div>
-    </footer>
+
+        <div class="help-section">
+            <div class="accordion">
+                <div class="accordion-header" id="help-header">
+                    <span>什么是COSTAR提问策略？</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="accordion-content" id="help-content">
+                    <div class="help-item">
+                        <h4>COSTAR策略介绍</h4>
+                        <p>COSTAR提问策略是一种结构化的方法，用于明确沟通需求，确保你得到最精确的回应。这个策略通过分解信息需求的关键要素，帮助你和AI助手建立更有效的沟通。</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>C - CONTEXT (背景信息)</h4>
+                        <p>提供与你的问题或请求相关的背景情况，帮助AI理解你的具体情境。这可能包括项目背景、已有信息、过去的尝试或相关限制条件。</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>O - OBJECTIVE (任务目标)</h4>
+                        <p>明确说明你希望通过这次交流达成的具体目标：是否需要解决问题、寻求创意、进行分析或获取某类信息。</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>S - STYLE (写作风格)</h4>
+                        <p>指明你希望回答采用的写作风格：学术/专业、通俗易懂、技术性强/详细、简洁/概述性等。</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>T - TONE (情感语调)</h4>
+                        <p>指定回答的情感基调或语气：正式/非正式、严肃/幽默、鼓励性/批判性、中立/热情等。</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>A - AUDIENCE (受众)</h4>
+                        <p>说明最终内容的目标读者是谁：专业人士/初学者、技术/非技术人员、特定年龄群体、特定行业人士等。</p>
+                    </div>
+                    <div class="help-item">
+                        <h4>R - RESPONSE (响应格式)</h4>
+                        <p>指定你期望的回应形式和结构：列表/要点、图表/表格、分步指南、例子/案例研究、对比分析等。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>© 2025 COSTAR提问策略转换器 | 让AI沟通更高效</p>
+        </footer>
+    </div>
 
     <script>
-        // DOM加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
             // 主题切换功能
             const themeToggle = document.getElementById('theme-toggle');
             const themeIcon = themeToggle.querySelector('i');
-            let myChart; // 声明图表变量，稍后在图表初始化时赋值
             
             // 检查系统偏好
             const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            // 检查本地存储的主题设置
-            const savedTheme = localStorage.getItem('theme');
             
             // 应用主题函数
             function applyTheme(theme) {
@@ -819,7 +492,7 @@
             }
             
             // 初始设置
-            if (savedTheme === 'dark' || (savedTheme !== 'light' && prefersDarkMode)) {
+            if (prefersDarkMode) {
                 applyTheme('dark');
             }
             
@@ -828,206 +501,434 @@
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 if (currentTheme === 'dark') {
                     applyTheme('light');
-                    localStorage.setItem('theme', 'light');
                 } else {
                     applyTheme('dark');
-                    localStorage.setItem('theme', 'dark');
-                }
-                
-                // 如果图表已初始化，更新图表主题
-                if (myChart) {
-                    updateChartTheme();
                 }
             });
             
-            // 更新图表主题函数
-            function updateChartTheme() {
-                const chartDom = document.getElementById('chart1');
-                if (!chartDom) return;
+            // 帮助折叠面板功能
+            const helpHeader = document.getElementById('help-header');
+            const helpContent = document.getElementById('help-content');
+            const helpIcon = helpHeader.querySelector('i');
+            
+            helpHeader.addEventListener('click', () => {
+                helpContent.classList.toggle('active');
+                if (helpContent.classList.contains('active')) {
+                    helpIcon.classList.remove('fa-chevron-down');
+                    helpIcon.classList.add('fa-chevron-up');
+                } else {
+                    helpIcon.classList.remove('fa-chevron-up');
+                    helpIcon.classList.add('fa-chevron-down');
+                }
+            });
+            
+            // COSTAR转换功能
+            const questionInput = document.getElementById('question-input');
+            const convertBtn = document.getElementById('convert-btn');
+            const clearBtn = document.getElementById('clear-btn');
+            const outputContent = document.getElementById('output-content');
+            const copyBtn = document.getElementById('copy-btn');
+            const copyMsg = document.getElementById('copy-msg');
+            
+            // 转换普通问题为COSTAR格式
+            function convertToCostar(question) {
+                if (!question.trim()) {
+                    return null;
+                }
                 
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const option = myChart.getOption();
+                // 提取问题的关键信息
+                const keywords = extractKeywords(question);
+                const theme = identifyTheme(question);
+                const questionType = identifyQuestionType(question);
                 
-                myChart.dispose();
-                myChart = echarts.init(chartDom, currentTheme === 'dark' ? 'dark' : null);
-                myChart.setOption(option);
+                // 生成COSTAR各部分内容
+                const context = generateContext(question, keywords, theme);
+                const objective = generateObjective(question, questionType);
+                const style = generateStyle(question, questionType);
+                const tone = generateTone(question);
+                const audience = generateAudience(question, theme);
+                const response = generateResponse(question, questionType);
+                
+                return {
+                    context,
+                    objective,
+                    style,
+                    tone,
+                    audience,
+                    response
+                };
             }
             
-            // 平滑滚动
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                });
-            });
-            
-            // 延迟加载图表，模拟数据加载
-            setTimeout(() => {
-                // 初始化图表
-                const chartDom = document.getElementById('chart1');
-                if (!chartDom) return;
+            // 提取问题中的关键词
+            function extractKeywords(question) {
+                // 移除常见的停用词和助词
+                const stopWords = ['的', '地', '得', '了', '在', '是', '我', '你', '他', '她', '它', '们', '和', '与', '以', '及', '或', '但', '为', '帮', '请', '能否', '可否', '可以', '能够', '如何'];
                 
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                myChart = echarts.init(chartDom, currentTheme === 'dark' ? 'dark' : null);
+                let words = question.split(/\s+|[,.;，。；]/);
+                words = words.filter(word => word.length > 1 && !stopWords.includes(word));
                 
-                const option = {
-                    title: {
-                        text: '《我看见的世界》读者年龄分布'
-                    },
-                    tooltip: {
-                        trigger: 'axis'
-                    },
-                    legend: {
-                        data: ['读者数量', '好评率']
-                    },
-                    grid: {
-                        left: '3%',
-                        right: '4%',
-                        bottom: '3%',
-                        containLabel: true
-                    },
-                    xAxis: {
-                        type: 'category',
-                        boundaryGap: false,
-                        data: ['18-25岁', '26-35岁', '36-45岁', '46-55岁', '56-65岁', '66岁以上']
-                    },
-                    yAxis: [
-                        {
-                            type: 'value',
-                            name: '读者数量',
-                            min: 0,
-                            max: 3000
-                        },
-                        {
-                            type: 'value',
-                            name: '好评率(%)',
-                            min: 70,
-                            max: 100,
-                            splitLine: {
-                                show: false
-                            }
-                        }
-                    ],
-                    series: [
-                        {
-                            name: '读者数量',
-                            type: 'bar',
-                            data: [1200, 2500, 1800, 1100, 850, 550],
-                            itemStyle: {
-                                color: '#5a67d8'
-                            }
-                        },
-                        {
-                            name: '好评率',
-                            type: 'line',
-                            yAxisIndex: 1,
-                            data: [92, 95, 88, 84, 91, 93],
-                            itemStyle: {
-                                color: '#48bb78'
-                            }
-                        }
-                    ]
-                };
-                
-                // 响应设备类型的图表选项调整
-                if (window.innerWidth <= 768) {
-                    // 对于移动设备，简化图表
-                    option.legend.show = false;
-                    option.grid.left = '8%';
-                    option.grid.bottom = '12%';
-                    option.title.textStyle = {
-                        fontSize: 14
-                    };
-                    option.xAxis.axisLabel = {
-                        interval: 0,
-                        rotate: 45,
-                        fontSize: 10
-                    };
+                // 如果过滤后关键词太少，保留一些原始内容
+                if (words.length < 3) {
+                    words = question.split(/\s+|[,.;，。；]/).filter(w => w.length > 0);
                 }
                 
-                myChart.setOption(option);
+                return words.slice(0, 6); // 最多返回6个关键词
+            }
+            
+            // 识别问题的主题领域
+            function identifyTheme(question) {
+                const themes = [
+                    { name: '技术', keywords: ['编程', '代码', '软件', '开发', '数据', '算法', '技术', '网站', '应用', 'bug', 'AI', '人工智能', '机器学习'] },
+                    { name: '商业', keywords: ['市场', '营销', '销售', '商业', '创业', '企业', '管理', '项目', '策略', '客户', '产品'] },
+                    { name: '教育', keywords: ['学习', '教育', '学生', '教师', '课程', '培训', '知识', '技能', '考试', '学校', '大学'] },
+                    { name: '写作', keywords: ['写作', '文章', '报告', '论文', '内容', '创作', '故事', '小说', '文案', '书籍', '博客'] },
+                    { name: '设计', keywords: ['设计', '用户界面', 'UI', 'UX', '用户体验', '图形', '创意', '美学', '视觉', '排版', '色彩'] },
+                    { name: '健康', keywords: ['健康', '医疗', '营养', '锻炼', '健身', '疾病', '药物', '治疗', '症状', '医生', '病人'] }
+                ];
                 
-                // 响应窗口大小变化
-                window.addEventListener('resize', () => {
-                    myChart.resize();
-                    // 根据新窗口大小调整图表选项
-                    const updatedOption = myChart.getOption();
-                    if (window.innerWidth <= 768) {
-                        // 对于移动设备，简化图表
-                        updatedOption.legend[0].show = false;
-                        updatedOption.grid[0].left = '8%';
-                        updatedOption.grid[0].bottom = '12%';
-                        updatedOption.title[0].textStyle = {
-                            fontSize: 14
-                        };
-                        updatedOption.xAxis[0].axisLabel = {
-                            interval: 0,
-                            rotate: 45,
-                            fontSize: 10
-                        };
+                // 检查问题中包含哪些主题关键词
+                let maxMatchCount = 0;
+                let bestTheme = '一般';
+                
+                for (const theme of themes) {
+                    let matchCount = 0;
+                    for (const keyword of theme.keywords) {
+                        if (question.includes(keyword)) {
+                            matchCount++;
+                        }
+                    }
+                    
+                    if (matchCount > maxMatchCount) {
+                        maxMatchCount = matchCount;
+                        bestTheme = theme.name;
+                    }
+                }
+                
+                return bestTheme;
+            }
+            
+            // 识别问题类型
+            function identifyQuestionType(question) {
+                if (question.includes('如何') || question.includes('怎么') || question.includes('步骤') || question.includes('流程')) {
+                    return '操作指导';
+                } else if (question.includes('比较') || question.includes('区别') || question.includes('优缺点')) {
+                    return '对比分析';
+                } else if (question.includes('列出') || question.includes('总结') || question.includes('概述')) {
+                    return '信息汇总';
+                } else if (question.includes('写') || question.includes('创作') || question.includes('生成')) {
+                    return '内容创作';
+                } else if (question.includes('解释') || question.includes('什么是') || question.includes('定义')) {
+                    return '概念解释';
+                } else if (question.includes('建议') || question.includes('推荐') || question.includes('意见')) {
+                    return '建议推荐';
+                } else if (question.includes('为什么') || question.includes('原因')) {
+                    return '原因分析';
+                } else {
+                    return '一般查询';
+                }
+            }
+            
+            // 生成上下文部分
+            function generateContext(question, keywords, theme) {
+                const contexts = {
+                    '技术': '我正在进行技术相关工作，需要解决一个问题或获取相关信息。',
+                    '商业': '我在商业/职场环境中需要处理一个问题或获取相关信息。',
+                    '教育': '我正在学习或教学过程中，需要相关的教育资源或方法。',
+                    '写作': '我正在进行写作项目，需要创意、内容或写作技巧方面的帮助。',
+                    '设计': '我正在进行设计相关工作，需要创意、灵感或技术支持。',
+                    '健康': '我对健康相关问题感兴趣，需要相关信息或建议。',
+                    '一般': '我正在寻找或需要解决以下问题的相关信息。'
+                };
+                
+                let baseContext = contexts[theme] || contexts['一般'];
+                let specificContext = `具体来说，我想了解关于"${keywords.join('、')}"的信息。`;
+                
+                return baseContext + ' ' + specificContext;
+            }
+            
+            // 生成目标部分
+            function generateObjective(question, questionType) {
+                const objectives = {
+                    '操作指导': '我希望获得清晰的步骤指导，帮助我理解并实施相关过程。',
+                    '对比分析': '我需要一个深入的对比分析，帮助我理解不同选项的优缺点。',
+                    '信息汇总': '我希望得到一个全面而简洁的信息汇总，覆盖关键要点。',
+                    '内容创作': '我需要创造高质量的内容，满足特定的要求和标准。',
+                    '概念解释': '我希望获得清晰易懂的解释，帮助我理解相关概念。',
+                    '建议推荐': '我寻求专业的建议或推荐，帮助我做出决策。',
+                    '原因分析': '我希望了解深层次的原因和解释，理解为什么会这样。',
+                    '一般查询': '我希望获取全面准确的信息，满足我的查询需求。'
+                };
+                
+                return objectives[questionType] || objectives['一般查询'];
+            }
+            
+            // 生成风格部分
+            function generateStyle(question, questionType) {
+                const styles = {
+                    '操作指导': '清晰、直接的教程风格，使用简单易懂的语言，最好有步骤编号。',
+                    '对比分析': '分析性风格，条理清晰，使用表格或并列结构来展示比较结果。',
+                    '信息汇总': '简洁明了的概述风格，使用要点和小标题组织信息。',
+                    '内容创作': '创意性和流畅的写作风格，具有吸引力和专业感。',
+                    '概念解释': '教育性的解释风格，从简单到复杂，使用类比和例子。',
+                    '建议推荐': '建议性风格，提供具体的推荐和理由。',
+                    '原因分析': '解释性风格，逻辑清晰，深入浅出。',
+                    '一般查询': '信息性风格，直接回答问题，提供相关背景。'
+                };
+                
+                // 检查问题中是否有风格提示词
+                let styleHint = '';
+                                    if (question.includes('详细') || question.includes('深入') || question.includes('全面')) {
+                        styleHint = '详细全面的解释风格，包含丰富的信息和深度分析。';
+                    } else if (question.includes('简洁') || question.includes('简短') || question.includes('摘要')) {
+                        styleHint = '简洁明了的风格，只提供核心要点和必要信息。';
+                    } else if (question.includes('通俗') || question.includes('易懂')) {
+                        styleHint = '通俗易懂的风格，避免使用专业术语，适合普通读者理解。';
+                    } else if (question.includes('专业') || question.includes('学术') || question.includes('技术')) {
+                        styleHint = '专业学术的风格，使用行业术语和严谨的表述方式。';
+                    }
+                    
+                    return styleHint || styles[questionType] || '清晰专业的表述风格，内容既准确又易于理解。';
+                }
+                
+                // 生成语调部分
+                function generateTone(question) {
+                    // 检查问题中的语调线索
+                    if (question.includes('幽默') || question.includes('有趣')) {
+                        return '轻松幽默的语调，适当加入一些有趣的元素。';
+                    } else if (question.includes('严肃') || question.includes('正式')) {
+                        return '严肃正式的语调，保持专业和客观。';
+                    } else if (question.includes('鼓励') || question.includes('积极')) {
+                        return '积极鼓励的语调，富有激励性和支持性。';
+                    } else if (question.includes('批判') || question.includes('评价')) {
+                        return '批判性思考的语调，客观分析优缺点。';
+                    } else if (question.includes('中立') || question.includes('客观')) {
+                        return '中立客观的语调，不偏不倚地呈现信息。';
                     } else {
-                        // 对于桌面设备，恢复完整图表
-                        updatedOption.legend[0].show = true;
-                        updatedOption.grid[0].left = '3%';
-                        updatedOption.grid[0].bottom = '3%';
-                        updatedOption.title[0].textStyle = {
-                            fontSize: 16
-                        };
-                        updatedOption.xAxis[0].axisLabel = {
-                            interval: 'auto',
-                            rotate: 0,
-                            fontSize: 12
-                        };
+                        return '友好专业的语调，既有权威性又平易近人。';
                     }
-                    myChart.setOption(updatedOption);
-                });
-            }, 1000);
-            
-            // 添加滚动时的淡入效果
-            const sections = document.querySelectorAll('.section');
-            
-            const fadeInOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -100px 0px'
-            };
-            
-            const fadeInObserver = new IntersectionObserver(function(entries, observer) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                        observer.unobserve(entry.target);
+                }
+                
+                // 生成受众部分
+                function generateAudience(question, theme) {
+                    // 基于主题推断受众
+                    const audiences = {
+                        '技术': '对技术有基本了解的用户或开发人员',
+                        '商业': '商业专业人士或管理人员',
+                        '教育': '教育工作者、学生或学习者',
+                        '写作': '作家、内容创作者或文学爱好者',
+                        '设计': '设计师或对设计感兴趣的用户',
+                        '健康': '关注健康的普通大众或医疗相关人员',
+                        '一般': '对该主题有基本了解的普通读者'
+                    };
+                    
+                    // 检查问题中的受众线索
+                    if (question.includes('初学者') || question.includes('新手') || question.includes('入门')) {
+                        return '初学者或对该领域刚入门的人，需要基础且易于理解的内容。';
+                    } else if (question.includes('专家') || question.includes('高级') || question.includes('资深')) {
+                        return '该领域的专业人士或资深从业者，可以理解高级概念和专业术语。';
+                    } else if (question.includes('学生') || question.includes('教学')) {
+                        return '学生或正在学习该领域的人，需要结构化且具有教育意义的内容。';
+                    } else if (question.includes('团队') || question.includes('同事')) {
+                        return '工作团队或专业环境中的同事，需要实用且可应用的内容。';
+                    } else {
+                        return audiences[theme] || audiences['一般'];
                     }
-                });
-            }, fadeInOptions);
-            
-            sections.forEach(section => {
-                section.style.opacity = 0;
-                section.style.transform = 'translateY(20px)';
-                section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-                fadeInObserver.observe(section);
-            });
-            
-            // 卡片悬停效果增强
-            const cards = document.querySelectorAll('.card');
-            cards.forEach(card => {
-                card.addEventListener('mouseenter', () => {
-                    card.style.transform = 'translateY(-5px)';
-                    card.style.boxShadow = 'var(--card-hover-shadow)';
+                }
+                
+                // 生成响应格式部分
+                function generateResponse(question, questionType) {
+                    const responseFormats = {
+                        '操作指导': '步骤式指南，每步都有清晰的说明和可能的示例或图示。',
+                        '对比分析': '结构化的对比，可能使用表格或并列要点来突出异同点。',
+                        '信息汇总': '要点列表，每个要点简明扼要，覆盖主要信息。',
+                        '内容创作': '完整的文本段落，组织良好，有逻辑结构。',
+                        '概念解释': '清晰的定义，可能包含举例和实际应用场景。',
+                        '建议推荐': '有优先级的建议列表，每个建议都有理由支持。',
+                        '原因分析': '逻辑性的分析结构，可能使用因果关系说明。',
+                        '一般查询': '直接明了的回答，提供必要的上下文和解释。'
+                    };
+                    
+                    // 检查问题中的格式线索
+                    if (question.includes('列表') || question.includes('清单')) {
+                        return '使用简洁的要点列表或编号列表来组织信息。';
+                    } else if (question.includes('表格') || question.includes('对比')) {
+                        return '使用表格或结构化格式来展示信息，特别是对比数据。';
+                    } else if (question.includes('步骤') || question.includes('流程') || question.includes('方法')) {
+                        return '采用编号步骤的格式，每步都有明确的说明和指导。';
+                    } else if (question.includes('详细') || question.includes('全面') || question.includes('深入')) {
+                        return '使用完整的段落和小节，深入解释各个方面。';
+                    } else if (question.includes('简洁') || question.includes('摘要')) {
+                        return '提供简明扼要的回答，聚焦于最重要的信息。';
+                    } else if (question.includes('例子') || question.includes('案例')) {
+                        return '包含具体的例子或案例研究来说明概念。';
+                    } else {
+                        return responseFormats[questionType] || '结构清晰的回答，包含适当的段落和小标题。';
+                    }
+                }
+                
+                // 转换按钮点击事件
+                convertBtn.addEventListener('click', () => {
+                    const question = questionInput.value.trim();
+                    if (!question) {
+                        alert('请输入问题后再进行转换');
+                        return;
+                    }
+                    
+                    const costarFormat = convertToCostar(question);
+                    if (costarFormat) {
+                        updateOutput(costarFormat);
+                    }
                 });
                 
-                card.addEventListener('mouseleave', () => {
-                    card.style.transform = '';
-                    card.style.boxShadow = 'var(--card-shadow)';
+                // 更新输出区域
+                function updateOutput(costarFormat) {
+                    const output = `
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-map-marker-alt"></i> C - CONTEXT (背景信息)
+                            </div>
+                            <div class="output-item-content">
+                                <p>${costarFormat.context}</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-bullseye"></i> O - OBJECTIVE (任务目标)
+                            </div>
+                            <div class="output-item-content">
+                                <p>${costarFormat.objective}</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-font"></i> S - STYLE (写作风格)
+                            </div>
+                            <div class="output-item-content">
+                                <p>${costarFormat.style}</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-comment-dots"></i> T - TONE (情感语调)
+                            </div>
+                            <div class="output-item-content">
+                                <p>${costarFormat.tone}</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-users"></i> A - AUDIENCE (受众)
+                            </div>
+                            <div class="output-item-content">
+                                <p>${costarFormat.audience}</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-reply"></i> R - RESPONSE (响应格式)
+                            </div>
+                            <div class="output-item-content">
+                                <p>${costarFormat.response}</p>
+                            </div>
+                        </div>
+                    `;
+                    
+                    outputContent.innerHTML = output;
+                }
+                
+                // 清除按钮点击事件
+                clearBtn.addEventListener('click', () => {
+                    questionInput.value = '';
+                    
+                    // 重置输出区域
+                    outputContent.innerHTML = `
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-map-marker-alt"></i> C - CONTEXT (背景信息)
+                            </div>
+                            <div class="output-item-content">
+                                <p>请提供与您的问题相关的背景信息，帮助我更好地理解您的具体情境。</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-bullseye"></i> O - OBJECTIVE (任务目标)
+                            </div>
+                            <div class="output-item-content">
+                                <p>您希望通过这个问题达成什么具体目标？</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-font"></i> S - STYLE (写作风格)
+                            </div>
+                            <div class="output-item-content">
+                                <p>您希望回答采用什么样的写作风格？(例如：学术、通俗、技术、简洁等)</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-comment-dots"></i> T - TONE (情感语调)
+                            </div>
+                            <div class="output-item-content">
+                                <p>您期望回答的情感基调或语气是怎样的？(例如：正式、友好、严肃、幽默等)</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-users"></i> A - AUDIENCE (受众)
+                            </div>
+                            <div class="output-item-content">
+                                <p>最终内容的目标读者是谁？(例如：专业人士、初学者、学生等)</p>
+                            </div>
+                        </div>
+                        <div class="output-item">
+                            <div class="output-item-header">
+                                <i class="fas fa-reply"></i> R - RESPONSE (响应格式)
+                            </div>
+                            <div class="output-item-content">
+                                <p>您期望的回应形式和结构是怎样的？(例如：列表、图表、分步指南等)</p>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                // 复制按钮功能
+                copyBtn.addEventListener('click', () => {
+                    // 创建一个临时文本区域
+                    const textarea = document.createElement('textarea');
+                    textarea.style.position = 'fixed';
+                    textarea.style.opacity = 0;
+                    
+                    // 获取所有输出内容
+                    const items = outputContent.querySelectorAll('.output-item');
+                    let text = '';
+                    
+                    items.forEach(item => {
+                        const header = item.querySelector('.output-item-header').textContent.trim();
+                        const content = item.querySelector('.output-item-content').textContent.trim();
+                        text += `${header}\n${content}\n\n`;
+                    });
+                    
+                    textarea.value = text;
+                    document.body.appendChild(textarea);
+                    textarea.select();
+                    
+                    try {
+                        document.execCommand('copy');
+                        // 显示复制成功消息
+                        copyMsg.classList.add('show');
+                        setTimeout(() => {
+                            copyMsg.classList.remove('show');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('复制失败:', err);
+                    }
+                    
+                    document.body.removeChild(textarea);
                 });
             });
-            
-            // 页面加载完成动画
-            setTimeout(() => {
-                document.body.classList.add('loaded');
-            }, 300);
-        });
+        </script>
     </script>
+</body>
+</html>
